@@ -32,7 +32,7 @@ function refresh() {
     }
     if ($('#ped-checkbox').is(':checked')) { where.push('ped_count > 0'); }
     if ($('#motorcycle-checkbox').is(':checked')) { where.push('motorcycle_count > 0'); }
-    if ($('#bus-checkbox').is(':checked')) { where.push('ped_count > 0'); }
+    if ($('#bus-checkbox').is(':checked')) { where.push('bus_count > 0'); }
 
     whereClause = '(' + where.join(' AND ') + ')';
 
