@@ -1,0 +1,110 @@
+h2 {
+    font-weight: bold;
+    font-size:100%;
+}
+
+#map {
+    width: 100%;
+    height: 70vh;
+}
+
+#controls {
+    width: 100%;
+    height: 25vh;
+}
+
+table {
+    font-size:80%;
+}
+td {
+    width:2em;
+    height:2em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.val0 { background: #000; color:#fff; }
+.val1 { background: #100; color:#fff; }
+.val2 { background: #210; color:#fff; }
+.val3 { background: #310; color:#fff; }
+.val4 { background: #420; color:#fff; }
+.val5 { background: #520; color:#fff; }
+.val6 { background: #630; color:#fff; }
+.val7 { background: #730; color:#fff; }
+.val8 { background: #840; color:#fff; }
+.val9 { background: #940; color:#fff; }
+.val10 { background: #a50; }
+.val11 { background: #b50; }
+.val12 { background: #c60; }
+.val13 { background: #d60; }
+.val14 { background: #e70; }
+.val15 { background: #f80; }
+.val16 { background: #f90; }
+
+
+/* spinkit! */
+
+.sk-hidden {
+  display: none;
+}
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #333;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  }
+}
