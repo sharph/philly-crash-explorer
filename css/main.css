@@ -5,20 +5,32 @@ body {
     font-family: 'Inconsolata', monospace;
 }
 
+h1 {
+    font-weight: bold;
+}
+
 h2 {
     font-weight: bold;
     font-size:100%;
 }
 
+#top {
+    color: #bbbbbf;
+    background: #333;
+}
+
+.links {
+    text-align:right;
+}
+
 #map {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     box-shadow: 0 0 10px black;
 }
 
 #controls {
     width: 100%;
-    height: 25vh;
 }
 
 table {
@@ -50,10 +62,10 @@ td {
 .val7 { background: #730; color:#fff; }
 .val8 { background: #840; color:#fff; }
 .val9 { background: #940; color:#fff; }
-.val10 { background: #a50; }
-.val11 { background: #b50; }
-.val12 { background: #c60; }
-.val13 { background: #d60; }
-.val14 { background: #e70; }
-.val15 { background: #f80; }
-.val16 { background: #f90; }
+.val10 { background: #a50; color:#000; }
+.val11 { background: #b50; color:#000; }
+.val12 { background: #c60; color:#000; }
+.val13 { background: #d60; color:#000; }
+.val14 { background: #e70; color:#000; }
+.val15 { background: #f80; color:#000; }
+.val16 { background: #f90; color:#000; }

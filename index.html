@@ -18,16 +18,28 @@
     <![endif]-->
   </head>
   <body>
-    <div id="map"></div>
-    <div id="controls">
+    <div id="top" class="clearfix">
+        <div class="col-xs-8">
+            <h1>Philadelphia Crash Explorer</h1>
+        </div>
+        <div class="col-xs-4 links">
+            <a href="https://www.opendataphilly.org/dataset/vehicular-crash-data">data</a>
+        </div>
+    </div>
+    <div id="map" class="clearfix"></div>
+    <div id="controls" class="container">
         <div class="col-sm-2 col-xs-6">
             <h2>Show crashes involving...</h2><br>
-            <input type="checkbox" id="bicycle-checkbox" onchange="refresh()">
-            <label for="bicycle-checkbox">Bikes</label> and<br>
             <input type="checkbox" id="automobile-checkbox" onchange="refresh()">
             <label for="automobile-checkbox">Automobiles</label> and<br>
+            <input type="checkbox" id="bicycle-checkbox" onchange="refresh()">
+            <label for="bicycle-checkbox">Bicycles</label> and<br>
             <input type="checkbox" id="ped-checkbox" onchange="refresh()">
-            <label for="ped-checkbox">Pedestrians</label>
+            <label for="ped-checkbox">Pedestrians</label> and<br>
+            <input type="checkbox" id="motorcycle-checkbox" onchange="refresh()">
+            <label for="motorcycle-checkbox">Motorcycles</label> and<br>
+            <input type="checkbox" id="bus-checkbox" onchange="refresh()">
+            <label for="bus-checkbox">Busses</label>
         </div>
         <div class="col-sm-2 col-xs-6">
             <h2>For years...</h2><br>

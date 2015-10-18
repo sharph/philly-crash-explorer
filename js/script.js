@@ -23,8 +23,16 @@ function refresh() {
     var query;
     var where = ['1=1'];
     if ($('#bicycle-checkbox').is(':checked')) { where.push('bicycle_count > 0'); }
-    if ($('#automobile-checkbox').is(':checked')) { where.push('automobile_count > 0'); }
+    if ($('#automobile-checkbox').is(':checked')) {
+        where.push('(automobile_count > 0' +
+                   ' or van_count > 0' +
+                   ' or suv_count > 0' +
+                   ' or small_truck_count > 0' +
+                   ')');
+    }
     if ($('#ped-checkbox').is(':checked')) { where.push('ped_count > 0'); }
+    if ($('#motorcycle-checkbox').is(':checked')) { where.push('motorcycle_count > 0'); }
+    if ($('#bus-checkbox').is(':checked')) { where.push('ped_count > 0'); }
 
     whereClause = '(' + where.join(' AND ') + ')';
 
