@@ -14,25 +14,25 @@ function refreshToddow() {
                     bounds.getEast(), ', ',
                     bounds.getNorth(), ')'].join('');
         var baseWhere = ['the_geom && ', bbox, ' AND (', whereClause, ') '].join('');;
-        var selects = [];
         var select;
-        for (var hour = 0; hour < 24; hour++) {
-            for (var dow = 1; dow <= 7; dow++) {
-                select = ['(select count(*) from ', tableName,
-                          ' where (',
-                          baseWhere,
-                          ') and ',
-                          'day_of_week = ', dow,
-                          ' and hour_of_day = ', hour,
-                          ') as ',
-                          'd', dow, 'h', hour].join('');
-                selects.push(select);
-            }
-        }
-        query = ['select ', selects.join(', ')].join('');
-        console.log(query);
+        query = ['select day_of_week,hour_of_day,count(*) from ',
+                 tableName,
+                 ' where ',
+                 baseWhere,
+                 ' group by day_of_week,hour_of_day'].join('');
         sql.execute(query).done(function (data) {
-            callback(data.rows[0]);
+            var transformedData = {};
+            var row;
+            for (var hour = 0; hour < 24; hour++) {
+                for (var dow = 1; dow <= 7; dow++) {
+                    transformedData['d'+dow+'h'+hour] = 0;
+                }
+            }
+            for (i in data.rows) {
+                row = data.rows[i];
+                transformedData['d'+row.day_of_week+'h'+row.hour_of_day] = row.count;
+            }
+            callback(transformedData);
         });
     }
 
