@@ -83,11 +83,9 @@ function refreshToddow() {
             html += '</tr>';
         }
         html += '</table>';
-        $('.sk-cube-grid').addClass('sk-hidden');
         $('#toddow').html(html);
     }
 
-    $('.sk-cube-grid').removeClass('sk-hidden');
     $('#toddow').html('');
     toddowData(updateToddow);
 }

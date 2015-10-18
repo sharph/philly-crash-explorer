@@ -10,8 +10,14 @@ cartodb.createVis('map', 'https://sharp.cartodb.com/api/v2/viz/c6209c60-751f-11e
         map = vis.getNativeMap();
         layer = layers[1].getSubLayer(0);
         refresh();
+        map.on('moveend', onMapMove);
     });
 var tableName = 'collisions_crash_2011_2014pubv';
+
+function onMapMove() {
+    refreshToddow();
+}
+
 
 function refresh() {
     var query;
