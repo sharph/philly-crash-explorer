@@ -4,7 +4,7 @@ var vis;
 var map;
 var whereClause = '1=1';
 
-cartodb.createVis('map', 'https://sharp.cartodb.com/api/v2/viz/c6209c60-751f-11e5-b83a-0e787de82d45/viz.json')
+cartodb.createVis('map', 'https://sharp.cartodb.com/api/v2/viz/c9981066-7548-11e5-bff4-0e787de82d45/viz.json')
     .done(function (vis, layers) {
         vis = vis;
         map = vis.getNativeMap();
@@ -26,7 +26,18 @@ function refresh() {
     if ($('#automobile-checkbox').is(':checked')) { where.push('automobile_count > 0'); }
     if ($('#ped-checkbox').is(':checked')) { where.push('ped_count > 0'); }
 
-    whereClause = where.join(' AND ');
+    whereClause = '(' + where.join(' AND ') + ')';
+
+    where = [];
+
+    if ($('#2011-checkbox').is(':checked')) { where.push('crash_year = 2011'); }
+    if ($('#2012-checkbox').is(':checked')) { where.push('crash_year = 2012'); }
+    if ($('#2013-checkbox').is(':checked')) { where.push('crash_year = 2013'); }
+    if ($('#2014-checkbox').is(':checked')) { where.push('crash_year = 2014'); }
+
+    if (where.length > 0) {
+        whereClause += ' AND (' + where.join(' OR ') + ')';
+    }
 
     query = [
         'SELECT * FROM ',
