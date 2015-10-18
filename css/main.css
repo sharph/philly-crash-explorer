@@ -1,3 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+body {
+    background: #bbbbbf;
+    font-family: 'Inconsolata', monospace;
+}
+
 h2 {
     font-weight: bold;
     font-size:100%;
@@ -6,6 +13,7 @@ h2 {
 #map {
     width: 100%;
     height: 70vh;
+    box-shadow: 0 0 10px black;
 }
 
 #controls {
@@ -15,6 +23,7 @@ h2 {
 
 table {
     font-size:80%;
+    margin-top:1em;
 }
 td {
     width:2em;

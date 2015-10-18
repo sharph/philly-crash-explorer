@@ -86,6 +86,6 @@ function refreshToddow() {
         $('#toddow').html(html);
     }
 
-    $('#toddow').html('');
+//    $('#toddow').html('');
     toddowData(updateToddow);
 }
