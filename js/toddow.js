@@ -13,9 +13,11 @@ function refreshToddow() {
                     bounds.getSouth(), ', ',
                     bounds.getEast(), ', ',
                     bounds.getNorth(), ')'].join('');
-        var baseWhere = ['the_geom && ', bbox, ' AND (', whereClause, ') '].join('');;
-        var select;
-        query = ['select day_of_week,hour_of_day,count(*) from ',
+        var baseWhere = ['the_geom && ', bbox, ' AND (', whereClause, ') '].join('');
+        if (!$('#toddow-vp-checkbox').is(':checked')) {
+            baseWhere = whereClause;
+        }
+        query = ['select day_of_week,hour_of_day,count(*),count(fatal_count) as fatal from ',
                  tableName,
                  ' where ',
                  baseWhere,
@@ -31,6 +33,9 @@ function refreshToddow() {
             for (i in data.rows) {
                 row = data.rows[i];
                 transformedData['d'+row.day_of_week+'h'+row.hour_of_day] = row.count;
+                if (row.fatal) {
+                    transformedData['d'+row.day_of_week+'h'+row.hour_of_day+'f'] = true;
+                }
             }
             callback(transformedData);
         });
@@ -75,6 +80,9 @@ function refreshToddow() {
             for(h = 0; h < 24; h++) {
                 html += '<td class="';
                 html += 'val' + parseInt((data['d'+d+'h'+h] - min) * 16 / range);
+                if (data['d'+d+'h'+h+'f']) {
+                    html += " fatal";
+                }
                 html += '">';
                 console.log('d' + d + 'h' + h)
                 html += data['d' + d + 'h' + h];
