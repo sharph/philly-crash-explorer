@@ -4,7 +4,7 @@ var vis;
 var map;
 var whereClause = '1=1';
 
-cartodb.createVis('map', 'https://sharp.cartodb.com/api/v2/viz/c9981066-7548-11e5-bff4-0e787de82d45/viz.json')
+cartodb.createVis('map', 'https://sharp.cartodb.com/api/v2/viz/bdf34ac8-76e7-11e5-9cfd-0e5db1731f59/viz.json')
     .done(function (vis, layers) {
         vis = vis;
         map = vis.getNativeMap();
@@ -48,11 +48,18 @@ function refresh() {
     }
 
     query = [
-        'SELECT * FROM ',
-        tableName,
-        ' WHERE ',
-        whereClause,
+        'select street_centerline.cartodb_id, street_centerline.the_geom_webmercator, street_centerline.stname, ',
+        'count(collisions_crash_2011_2014pubv)::float / ',
+        '(select count(*) from collisions_crash_2011_2014pubv ',
+        ' where ', whereClause, ') as i, ',
+        'count(collisions_crash_2011_2014pubv) as count, ',
+        'count(collisions_crash_2011_2014pubv.fatal_count) as fatal ',
+        'FROM street_centerline, collisions_crash_2011_2014pubv ',
+        'where collisions_crash_2011_2014pubv.seg_id = street_centerline.seg_id and (',
+        whereClause, ') ',
+        'group by street_centerline.the_geom_webmercator, street_centerline.stname, street_centerline.cartodb_id'
     ].join('');
+    console.log(query);
     layer.setSQL(query);
     refreshToddow();
 }
